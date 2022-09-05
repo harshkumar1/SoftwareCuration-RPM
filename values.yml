@@ -1,0 +1,10 @@
+var:
+  pipelineName: pipeline_serviceB
+  gitProvider: Github
+  path: harshkumar1/Service-B
+  branches: master
+  #pipelineName: Service-B-Master
+  nodePool: k8_pool
+  artifactory: Artifactory
+  repo: harsh-docker-local-repo
+  imageName: demo.jfrog-pipelines.com/harsh-docker-local-repo/service-b
