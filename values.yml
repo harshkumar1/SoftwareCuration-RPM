@@ -1,10 +1,10 @@
 var:
-  pipelineName: pipeline_serviceB
+  pipelineName: pipeline_serviceC
   gitProvider: Github
-  path: harshkumar1/Service-B
+  path: harshkumar1/Service-C
   branches: master
   #pipelineName: Service-B-Master
   nodePool: k8_pool
   artifactory: Artifactory
   repo: harsh-docker-local-repo
-  imageName: demo.jfrog-pipelines.com/harsh-docker-local-repo/service-b
+  imageName: demo.jfrog-pipelines.com/harsh-docker-local-repo/service-c
