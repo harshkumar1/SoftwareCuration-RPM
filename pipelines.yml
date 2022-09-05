@@ -2,7 +2,7 @@ template: true   # required for local templates
 valuesFilePath: ./values.yml
 
 resources:
-  - name: dbp_repo_1
+  - name: dbp_repo_c
     type: GitRepo
     configuration:
       gitProvider: {{ .Values.var.gitProvider }}
@@ -10,7 +10,7 @@ resources:
       branches:
         include: {{ .Values.var.branches }} 
 
-  - name: dbp_image_1
+  - name: dbp_image_c
     type: Image
     configuration:
       registry: {{ .Values.var.artifactory }}
@@ -19,7 +19,7 @@ resources:
       imageTag: latest
       autoPull: true
       
-  - name: dbp_build_info_1
+  - name: dbp_build_info_c
     type: BuildInfo
     configuration:
       sourceArtifactory: {{ .Values.var.artifactory }}
@@ -63,7 +63,7 @@ pipelines:
           inputSteps:
             - name: docker_file_base_image_update
           inputResources:
-            - name: dbp_repo_1
+            - name: dbp_repo_c
           integrations:
             - name: {{ .Values.var.artifactory }}                             # <-- replace with your artifactory integration
 
@@ -77,7 +77,7 @@ pipelines:
           inputSteps:
             - name: docker_build
           outputResources:
-            - name: dbp_image
+            - name: dbp_image_c
 
       - name: publish_dbp_build
         type: PublishBuildInfo
@@ -85,7 +85,7 @@ pipelines:
           inputSteps:
             - name: docker_push
           outputResources:
-            - name: dbp_build_info_1
+            - name: dbp_build_info_c
       #- name: promote_dbp_build
       #  type: PromoteBuild
       #  configuration:
